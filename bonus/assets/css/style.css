@@ -1,0 +1,131 @@
+:root {
+    --dark-purple: #16001E;
+    
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+body {
+    background-color: var(--dark-purple);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin: 1rem 0;
+    color: white;
+}
+
+.title i {
+    margin: 0 1rem;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    
+    
+}
+
+
+
+/* #region columns */
+.col {
+    width: 60%;
+    margin: 0 auto;
+}
+
+/* #endregion */
+
+
+/* #region main */
+#site_main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.active-img {
+    position: relative;
+    height: 500px;
+    
+    
+}
+
+
+
+
+.active-img img {
+    display: none;
+   
+}
+
+.active-img img.active {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center right;
+    border-radius: 1rem;
+    
+
+   
+}
+
+.next,
+.prev {
+    position: absolute;
+    transition: scale 0.2s ease;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    
+    
+}
+
+.next i, .prev i {
+    padding: 0.5rem;
+    color: gainsboro;
+}
+
+.next i:hover,
+.prev i:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
+
+.next {
+    right: 0px;
+    top: 50%;
+    translate: 0 -50%;
+    border-radius: 0 1rem 1rem 0;
+}
+
+.prev {
+    left: 0px;
+    top: 50%;
+    translate: 0 -50%;
+    border-radius: 1rem 0 0 1rem;
+}
+
+/* #endregion */
