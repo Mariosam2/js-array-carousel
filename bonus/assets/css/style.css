@@ -108,8 +108,8 @@ img {
     color: gainsboro;
 }
 
-.next i:hover,
-.prev i:hover {
+.next:hover i,
+.prev:hover i {
     cursor: pointer;
     scale: 1.1;
 }

@@ -16,7 +16,6 @@ const linkArray = [
 
 // contatore immagine corrente
 let currentIndex = 0;
-let infinite = (currentIndex + 4) % 5 ;
 
 // creazione degli elementi img e set dell'active img
 for(let i = 0; i < linkArray.length; i++){
@@ -27,12 +26,22 @@ for(let i = 0; i < linkArray.length; i++){
 
 nextButton.addEventListener('click', ()=>{
     const images = document.querySelectorAll('.active-img > img');
-    images[infinite].classList.remove('active');
-    console.log(currentIndex);
-    console.log(infinite);
-    currentIndex++;
-    infinite = (currentIndex + 4) % 5;
-    images[infinite].classList.add('active');
+    if(currentIndex > 4){
+        console.log(currentIndex)
+        currentIndex = 3;
+        
+    }
+    images[currentIndex].classList.remove('active');
+    currentIndex++;  
+    if(currentIndex > 4){
+        console.log(currentIndex)
+        currentIndex = 0;
+        
+    }
+    console.log(currentIndex)  
+    images[currentIndex].classList.add('active');
+    
+    
     
 
 });
@@ -41,11 +50,13 @@ nextButton.addEventListener('click', ()=>{
 prevButton.addEventListener('click', ()=>{
     const images = document.querySelectorAll('.active-img > img');
     images[currentIndex].classList.remove('active');
-   
-    console.log(infinite);
     currentIndex--;
-    infinite = Math.abs(linkArray.length - currentIndex) % 5;
-    images[infinite].classList.add('active');
+    if(currentIndex < 0){
+        console.log(currentIndex)
+        currentIndex = 4;
+        
+    }
+    images[currentIndex].classList.add('active');
     
 
 });
