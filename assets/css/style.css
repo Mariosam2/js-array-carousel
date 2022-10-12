@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+/* #region columns */
+.col {
+    width: 60%;
+}
+/* #endregion */
+
+
+/* #region main */
+#site_main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+.active-img {
+    height: 500px;
+    
+}
+.active-img img {
+    display: none;
+}
+
+.active-img img.active {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    
+}
+/* #endregion */
