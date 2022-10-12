@@ -1,8 +1,9 @@
 /* Dato un array contenente una lista di cinque immagini, creare un carosello come nello screenshot allegato. */
 
 
-const slidesContainer = document.querySelector('.col.active-img');
+const slidesContainer = document.querySelector('.active-img');
 const nextButton = document.querySelector('.next');
+const prevButton = document.querySelector('.prev');
 
 // array percorso immagini
 const linkArray = [
@@ -14,21 +15,36 @@ const linkArray = [
 ]
 
 // contatore immagine corrente
-let currentIndex = 2;
+let currentIndex = 0;
 
 // creazione degli elementi img e set dell'active img
 for(let i = 0; i < linkArray.length; i++){
     let imgEl = `<img class="${i == currentIndex ? 'active' : ''}" src="${linkArray[i]}">`
-    console.log(imgEl)
-    slidesContainer.insertAdjacentHTML("afterbegin", imgEl);
+    slidesContainer.insertAdjacentHTML("beforeend", imgEl);
 
 }
 
 nextButton.addEventListener('click', ()=>{
-    console.log('click');
+    const images = document.querySelectorAll('.active-img > img');
+    images[currentIndex].classList.remove('active');
     currentIndex++;
+    images[currentIndex].classList.add('active');
     
 
 });
+
+
+prevButton.addEventListener('click', ()=>{
+    const images = document.querySelectorAll('.active-img > img');
+    images[currentIndex].classList.remove('active');
+    currentIndex--;
+    images[currentIndex].classList.add('active');
+    
+
+});
+
+
+
+
 
 

@@ -25,7 +25,9 @@ img {
 /* #region columns */
 .col {
     width: 60%;
+    margin: 0 auto;
 }
+
 /* #endregion */
 
 
@@ -35,12 +37,22 @@ img {
     display: flex;
     align-items: center;
 }
+
+
+
 .active-img {
+    position: relative;
     height: 500px;
     
+    
 }
+
+
+
+
 .active-img img {
     display: none;
+   
 }
 
 .active-img img.active {
@@ -49,6 +61,48 @@ img {
     width: 100%;
     object-fit: cover;
     object-position: center right;
+    border-radius: 1rem;
+    
+
+   
+}
+
+.next,
+.prev {
+    position: absolute;
+    transition: scale 0.2s ease;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    
     
 }
+
+.next i, .prev i {
+    padding: 0.5rem;
+    color: gainsboro;
+}
+
+.next i:hover,
+.prev i:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
+
+.next {
+    right: 0px;
+    top: 50%;
+    translate: 0 -50%;
+    border-radius: 0 1rem 1rem 0;
+}
+
+.prev {
+    left: 0px;
+    top: 50%;
+    translate: 0 -50%;
+    border-radius: 1rem 0 0 1rem;
+}
+
 /* #endregion */
