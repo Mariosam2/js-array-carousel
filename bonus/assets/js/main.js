@@ -2,6 +2,7 @@
 
 
 const slidesContainer = document.querySelector('.active-img');
+const thumbsContainer = document.querySelector('.thumbs')
 const nextButton = document.querySelector('.next');
 const prevButton = document.querySelector('.prev');
 
@@ -24,13 +25,23 @@ for(let i = 0; i < linkArray.length; i++){
 
 }
 
+// creazione delle thumb
+for(let i = 0; i < linkArray.length; i++){
+    let thumbEl = `<div class= "thumb ${i == currentIndex ? 'active' : ''}"><div class= "layover"></div><img src="${linkArray[i]}"></div>`
+    nextButton.insertAdjacentHTML("beforebegin", thumbEl);
+
+}
+
 nextButton.addEventListener('click', ()=>{
     const images = document.querySelectorAll('.active-img > img');
+    const thumbs = document.querySelectorAll('.thumb')
+    console.log(thumbs);
     if(currentIndex > 4){
         console.log(currentIndex)
         currentIndex = 3;
         
     }
+    thumbs[currentIndex].classList.remove('active');
     images[currentIndex].classList.remove('active');
     currentIndex++;  
     if(currentIndex > 4){
@@ -38,7 +49,8 @@ nextButton.addEventListener('click', ()=>{
         currentIndex = 0;
         
     }
-    console.log(currentIndex)  
+    console.log(currentIndex) 
+    thumbs[currentIndex].classList.add('active'); 
     images[currentIndex].classList.add('active');
     
     
@@ -49,6 +61,9 @@ nextButton.addEventListener('click', ()=>{
 
 prevButton.addEventListener('click', ()=>{
     const images = document.querySelectorAll('.active-img > img');
+    const thumbs = document.querySelectorAll('.thumb');
+    console.log(thumbs);
+    thumbs[currentIndex].classList.remove('active');
     images[currentIndex].classList.remove('active');
     currentIndex--;
     if(currentIndex < 0){
@@ -56,6 +71,7 @@ prevButton.addEventListener('click', ()=>{
         currentIndex = 4;
         
     }
+    thumbs[currentIndex].classList.add('active');
     images[currentIndex].classList.add('active');
     
 
